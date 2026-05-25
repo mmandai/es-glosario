@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -6,8 +7,17 @@
 <title>Glosario Inmobiliario España 2026 — ITP, AJD, Hipoteca, Plusvalía, IRPF</title>
 <meta name="description" content="Glosario completo de términos inmobiliarios en España. Definiciones y fórmulas para ITP, AJD, hipoteca, plusvalía municipal, IRPF, tasación, LTV y más. Actualizado 2026.">
 <link rel="canonical" href="https://mmandai.github.io/es-glosario/">
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y6Y98KGTDT"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Y6Y98KGTDT');</script>
+<script>
+function loadAnalytics(){
+  var s=document.createElement('script');s.async=true;
+  s.src='https://www.googletagmanager.com/gtag/js?id=G-Y6Y98KGTDT';
+  document.head.appendChild(s);
+  window.dataLayer=window.dataLayer||[];
+  function gtag(){dataLayer.push(arguments);}window.gtag=gtag;
+  gtag('js',new Date());gtag('config','G-Y6Y98KGTDT');
+}
+if(localStorage.getItem('cookieConsent')==='accepted'){loadAnalytics();}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -54,6 +64,14 @@ body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:
 .wrap{max-width:1200px;margin:0 auto;padding:0 24px;}
 .glossary-layout{display:grid;grid-template-columns:200px 1fr;gap:32px;padding:48px 0 80px;align-items:start;}
 @media(max-width:900px){.glossary-layout{grid-template-columns:1fr;}}
+.cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:9999;background:var(--terra);padding:16px 24px;display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;font-size:13px;border-top:1px solid rgba(255,255,255,.1);}
+.cookie-banner p{max-width:560px;text-align:center;color:rgba(255,255,255,.7);font-size:13px;}
+.cookie-banner a{color:var(--white);text-decoration:underline;}
+.cookie-btn{padding:8px 20px;border-radius:6px;font-size:13px;font-weight:700;cursor:pointer;border:none;font-family:var(--sans);}
+.cookie-accept{background:var(--accent);color:var(--white);}
+.cookie-reject{background:transparent;color:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.3)!important;}
+.cookie-buttons{display:flex;gap:8px;}
+@media(max-width:600px){.cookie-banner{flex-direction:column;text-align:center;}}
 .sidebar{position:sticky;top:130px;}
 .sidebar-section{margin-bottom:24px;}
 .sidebar-title{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink4);margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--rule);}
@@ -88,6 +106,7 @@ body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:
 .term-example strong{color:var(--ink2);font-weight:600;}
 .term-calc{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:600;color:var(--accent);text-decoration:none;margin-top:8px;transition:opacity .2s;}
 .term-calc:hover{opacity:.7;}
+.term-sep{font-family:var(--mono);font-size:12px;font-weight:600;color:var(--accent);display:inline-flex;align-items:center;margin-top:8px;}
 .no-results{text-align:center;padding:60px 0;display:none;}
 .no-results p{font-size:15px;color:var(--ink3);}
 .hidden{display:none !important;}
@@ -103,6 +122,13 @@ footer{background:var(--terra);color:rgba(255,255,255,.5);padding:40px 0;text-al
 </style>
 </head>
 <body>
+<div class="cookie-banner" id="cookieBanner" style="display:none;">
+  <p>Usamos cookies de Google Analytics. Ver nuestra <a href="https://mmandai.github.io/privacy/">Política de privacidad</a>.</p>
+  <div class="cookie-buttons">
+    <button class="cookie-btn cookie-accept" onclick="setCookieConsent('accepted')">Aceptar</button>
+    <button class="cookie-btn cookie-reject" onclick="setCookieConsent('rejected')">Rechazar</button>
+  </div>
+</div>
 
 <header class="site-header">
   <div class="hd-inner">
@@ -165,6 +191,7 @@ footer{background:var(--terra);color:rgba(255,255,255,.5);padding:40px 0;text-al
 <div class="no-results" id="noResults"><p>No se encontraron términos. Prueba otro filtro.</p></div>
 
 <!-- A -->
+
 <div class="terms-section" data-letter="A">
 <span class="section-anchor" id="section-A"></span>
 <div class="section-letter">A</div>
@@ -175,7 +202,7 @@ footer{background:var(--terra);color:rgba(255,255,255,.5);padding:40px 0;text-al
   <div class="term-definition">Impuesto que grava los documentos notariales, mercantiles y administrativos. En la compraventa inmobiliaria, se aplica principalmente a las escrituras de vivienda nueva (0,5–2% según CCAA) y a la constitución de hipoteca. Desde la Ley 5/2019 de Crédito Inmobiliario, el AJD de la hipoteca lo paga el banco.</div>
   <div class="term-formula">AJD compraventa (obra nueva) = Precio × Tipo AJD de la CCAA (0,5–2%)<br>AJD hipoteca = Responsabilidad hipotecaria × Tipo AJD → paga el banco</div>
   <div class="term-example"><strong>Ejemplo:</strong> Piso nuevo en Madrid (0,75% AJD) a 300.000 € → AJD compraventa = 2.250 €. El AJD de la hipoteca (p.ej., 1.350 €) lo paga el banco.</div>
-  <a href="https://mmandai.github.io/es-itp/" class="term-calc">→ Calculadora ITP y gastos</a>
+  <a href="https://mmandai.github.io/es-itp/" class="term-calc">Calculadora ITP y gastos</a><span class="term-sep"> · </span><a href="https://mmandai.github.io/es-itp-vs-iva/" class="term-calc">ITP vs IVA</a><span class="term-sep"> · </span><a href="https://mmandai.github.io/es-gastos-compraventa/" class="term-calc">Gastos compraventa</a>
 </div>
 
 <div class="term-card" data-tags="compra hipoteca" data-name="amortización hipoteca cuota">
@@ -183,11 +210,15 @@ footer{background:var(--terra);color:rgba(255,255,255,.5);padding:40px 0;text-al
   <div class="term-tags"><span class="term-tag tag-hipoteca">Hipoteca</span></div>
   <div class="term-definition">Proceso de devolución del capital prestado. En España dominan las hipotecas de cuota constante (sistema francés): la cuota mensual es fija pero la composición varía — al principio se pagan más intereses y menos capital; al final, al contrario. La amortización anticipada puede generar comisiones (máximo 2% en los 5 primeros años, 1,5% después).</div>
   <div class="term-formula">Cuota = P × [r(1+r)ⁿ] / [(1+r)ⁿ − 1]<br>P = capital · r = tipo mensual · n = número de cuotas<br>Ahorro amortización anticipada = Intereses que dejarías de pagar</div>
+
+<a href="https://mmandai.github.io/es-itp/" class="term-calc">Calculadora ITP</a>
+
 </div>
 
 </div>
 
 <!-- C -->
+
 <div class="terms-section" data-letter="C">
 <span class="section-anchor" id="section-C"></span>
 <div class="section-letter">C</div>
@@ -198,11 +229,15 @@ footer{background:var(--terra);color:rgba(255,255,255,.5);padding:40px 0;text-al
   <div class="term-definition">Límite de deuda que un banco considera asumible. El Banco de España recomienda que la cuota hipotecaria no supere el 30–35% de los ingresos netos mensuales. Los bancos también tienen en cuenta otras deudas, estabilidad laboral e historial crediticio en la CIRBE.</div>
   <div class="term-formula">Tasa de esfuerzo = Cuota hipotecaria ÷ Ingresos netos × 100%<br>Máximo recomendado: 30–35%<br>Hipoteca máxima ≈ Ingresos netos × 33% × 12 meses ÷ Tipo anual</div>
   <div class="term-example"><strong>Ejemplo:</strong> Ingresos netos 3.000 €/mes → cuota máxima ≈ 1.000 €/mes → hipoteca máxima aprox. 180.000 € (a 25 años, 3,5% tipo fijo).</div>
+
+<a href="https://mmandai.github.io/es-itp/" class="term-calc">Calculadora ITP</a><span class="term-sep"> · </span><a href="https://mmandai.github.io/es-gastos-compraventa/" class="term-calc">Gastos compraventa</a>
+
 </div>
 
 </div>
 
 <!-- G -->
+
 <div class="terms-section" data-letter="G">
 <span class="section-anchor" id="section-G"></span>
 <div class="section-letter">G</div>
@@ -212,12 +247,13 @@ footer{background:var(--terra);color:rgba(255,255,255,.5);padding:40px 0;text-al
   <div class="term-tags"><span class="term-tag tag-compra">Compra</span><span class="term-tag tag-fiscal">Fiscal</span></div>
   <div class="term-definition">Conjunto de costes adicionales al precio de compra que asume el comprador. Incluyen impuestos (ITP o IVA+AJD), notaría, Registro de la Propiedad y gestoría. No pueden financiarse con hipoteca — deben pagarse con ahorros propios. En total representan entre el 8% y el 15% del precio según la CCAA y el tipo de vivienda.</div>
   <div class="term-formula">Segunda mano: ITP + Notaría + Registro + Gestoría ≈ 8–11% del precio<br>Obra nueva: IVA 10% + AJD + Notaría + Registro + Gestoría ≈ 12–15%<br>Norma general: necesitas 20% entrada + 10–12% gastos = 30–32% en efectivo</div>
-  <a href="https://mmandai.github.io/es-itp/" class="term-calc">→ Calculadora de gastos</a>
+  <a href="https://mmandai.github.io/es-itp/" class="term-calc">Calculadora de gastos</a><span class="term-sep"> · </span><a href="https://mmandai.github.io/es-itp/" class="term-calc">Calculadora ITP</a><span class="term-sep"> · </span><a href="https://mmandai.github.io/es-gastos-compraventa/" class="term-calc">Gastos compraventa</a>
 </div>
 
 </div>
 
 <!-- I -->
+
 <div class="terms-section" data-letter="I">
 <span class="section-anchor" id="section-I"></span>
 <div class="section-letter">I</div>
@@ -228,7 +264,7 @@ footer{background:var(--terra);color:rgba(255,255,255,.5);padding:40px 0;text-al
   <div class="term-definition">Impuesto que grava la compraventa de vivienda de segunda mano en España. Está cedido a las Comunidades Autónomas, que fijan sus propios tipos: desde el 6% en Madrid y Navarra hasta el 11% en Extremadura. Existen tipos reducidos para jóvenes, familias numerosas y personas con discapacidad según la CCAA.</div>
   <div class="term-formula">ITP = Precio de compra × Tipo ITP de la CCAA<br>Madrid: 6% · Cataluña: 10% · Andalucía: 7% · Valencia: 10% · Extremadura: 11%<br>Las viviendas nuevas NO pagan ITP sino IVA (10%) + AJD</div>
   <div class="term-example"><strong>Ejemplo:</strong> Piso segunda mano en Cataluña por 300.000 € → ITP = 300.000 × 10% = 30.000 €. En Madrid → 18.000 €. Diferencia: 12.000 € por la misma operación.</div>
-  <a href="https://mmandai.github.io/es-itp/" class="term-calc">→ Calculadora ITP por CCAA</a>
+  <a href="https://mmandai.github.io/es-itp/" class="term-calc">Calculadora ITP por CCAA</a><span class="term-sep"> · </span><a href="https://mmandai.github.io/es-itp-vs-iva/" class="term-calc">ITP vs IVA</a><span class="term-sep"> · </span><a href="https://mmandai.github.io/es-gastos-compraventa/" class="term-calc">Gastos compraventa</a>
 </div>
 
 <div class="term-card" data-tags="fiscal venta" data-name="irpf ganancia patrimonial venta vivienda">
@@ -237,11 +273,15 @@ footer{background:var(--terra);color:rgba(255,255,255,.5);padding:40px 0;text-al
   <div class="term-definition">Al vender una vivienda, la diferencia entre el precio de venta y el de compra (más gastos) tributa en el IRPF como ganancia patrimonial. Tipos de la base del ahorro 2026: 19% hasta 6.000 €, 21% de 6.001 a 50.000 €, 23% de 50.001 a 200.000 €, 27% de 200.001 a 300.000 €, 30% por encima.</div>
   <div class="term-formula">Ganancia = Precio venta − Precio compra − Gastos compra − Gastos venta − Mejoras<br>Exención: reinversión en vivienda habitual · mayores de 65 años<br>Reducción: vivienda habitual con mínimo 3 años de residencia</div>
   <div class="term-example"><strong>Exención habitual:</strong> si reinviertes el importe total en otra vivienda habitual en 2 años, la ganancia queda exenta de IRPF.</div>
+
+<a href="https://mmandai.github.io/es-itp-vs-iva/" class="term-calc">ITP vs IVA</a>
+
 </div>
 
 </div>
 
 <!-- L -->
+
 <div class="terms-section" data-letter="L">
 <span class="section-anchor" id="section-L"></span>
 <div class="section-letter">L</div>
@@ -252,11 +292,15 @@ footer{background:var(--terra);color:rgba(255,255,255,.5);padding:40px 0;text-al
   <div class="term-definition">Porcentaje del valor de tasación que el banco financia mediante hipoteca. En España, los bancos financian habitualmente hasta el 80% del menor valor entre el precio de compra y la tasación para vivienda habitual (70% para segunda residencia). La tasación la realiza una sociedad homologada por el Banco de España.</div>
   <div class="term-formula">LTV = Importe hipoteca ÷ Valor de tasación × 100%<br>Financiación máxima habitual: 80% del valor de tasación<br>Ahorro necesario = Precio − (Tasación × 80%) + Todos los gastos</div>
   <div class="term-example"><strong>Ejemplo:</strong> Piso 250.000 €, tasado en 240.000 € → hipoteca máxima = 240.000 × 80% = 192.000 €. Necesitas 58.000 € propios + gastos (~25.000 €) = 83.000 € en efectivo.</div>
+
+<a href="https://mmandai.github.io/es-itp/" class="term-calc">Calculadora ITP</a><span class="term-sep"> · </span><a href="https://mmandai.github.io/es-gastos-compraventa/" class="term-calc">Gastos compraventa</a>
+
 </div>
 
 </div>
 
 <!-- P -->
+
 <div class="terms-section" data-letter="P">
 <span class="section-anchor" id="section-P"></span>
 <div class="section-letter">P</div>
@@ -267,11 +311,15 @@ footer{background:var(--terra);color:rgba(255,255,255,.5);padding:40px 0;text-al
   <div class="term-definition">Impuesto municipal sobre el incremento del valor de los terrenos urbanos al transmitirse. Lo paga el vendedor (salvo pacto en contrario). Tras la STC 182/2021 del Tribunal Constitucional, se eliminó la obligación de pagar cuando no hay ganancia real. El cálculo puede hacerse por método objetivo (coeficientes municipales) o real (diferencia de valores catastrales del suelo).</div>
   <div class="term-formula">Método objetivo: Base = Valor catastral suelo × Coeficiente × Años tenencia<br>Método real: Base = (Valor transmisión − Valor adquisición) × % suelo catastral<br>Cuota = Base × Tipo gravamen municipal (máximo 30%)</div>
   <div class="term-example"><strong>Exención:</strong> si el valor del terreno no ha aumentado o ha bajado, puedes acreditar la inexistencia de ganancia y quedar exento.</div>
+
+<a href="https://mmandai.github.io/es-itp-vs-iva/" class="term-calc">ITP vs IVA</a>
+
 </div>
 
 </div>
 
 <!-- R -->
+
 <div class="terms-section" data-letter="R">
 <span class="section-anchor" id="section-R"></span>
 <div class="section-letter">R</div>
@@ -282,11 +330,15 @@ footer{background:var(--terra);color:rgba(255,255,255,.5);padding:40px 0;text-al
   <div class="term-definition">El TIN (Tipo de Interés Nominal) es el tipo pactado sin incluir gastos. La TAE (Tasa Anual Equivalente) refleja el coste real incluyendo comisiones y gastos — es la referencia para comparar hipotecas. El Euríbor (tipo variable más común en España) se revisa anualmente o semestralmente: hipoteca variable = Euríbor + Diferencial.</div>
   <div class="term-formula">Hipoteca variable: Tipo = Euríbor 12m + Diferencial (0,4–1,2%)<br>TAE = (1 + TIN/n)ⁿ − 1 (incluyendo comisiones y gastos)<br>Cuota variable revisada = Recalculada con nuevo Euríbor cada 12 meses</div>
   <div class="term-example"><strong>Mayo 2026:</strong> Euríbor 12m ≈ 2,1%. Hipoteca variable con diferencial 0,8% → tipo actualizado ≈ 2,9%. Hipoteca fija a 30 años: aprox. 3,2–3,5%.</div>
+
+<a href="https://mmandai.github.io/es-itp/" class="term-calc">Calculadora ITP</a>
+
 </div>
 
 </div>
 
 <!-- T -->
+
 <div class="terms-section" data-letter="T">
 <span class="section-anchor" id="section-T"></span>
 <div class="section-letter">T</div>
@@ -296,6 +348,9 @@ footer{background:var(--terra);color:rgba(255,255,255,.5);padding:40px 0;text-al
   <div class="term-tags"><span class="term-tag tag-compra">Compra</span><span class="term-tag tag-fiscal">Fiscal</span></div>
   <div class="term-definition">La tasación es la valoración oficial del inmueble por una sociedad homologada, necesaria para la hipoteca. El valor catastral es el valor administrativo fijado por el Catastro, generalmente inferior al de mercado — sirve de base para el IBI, plusvalía municipal y ciertas liquidaciones del ITP en algunas CCAA.</div>
   <div class="term-example"><strong>Coste de tasación:</strong> entre 250 y 600 €, a cargo del solicitante de la hipoteca. Desde la Ley 5/2019, el banco no puede exigir una tasadora concreta — el cliente puede elegir libremente entre las homologadas por el Banco de España.</div>
+
+<a href="https://mmandai.github.io/es-itp/" class="term-calc">Calculadora ITP</a><span class="term-sep"> · </span><a href="https://mmandai.github.io/es-gastos-compraventa/" class="term-calc">Gastos compraventa</a>
+
 </div>
 
 </div>
@@ -312,6 +367,8 @@ footer{background:var(--terra);color:rgba(255,255,255,.5);padding:40px 0;text-al
       <div class="footer-links">
         <a href="https://mmandai.github.io/es-itp/">Calculadora ITP</a>
         <a href="https://imemyselfai.gumroad.com/l/esitpcalc">Descargar Excel</a>
+        <a href="https://mmandai.github.io/es-itp-vs-iva/">ITP vs IVA</a>
+        <a href="https://mmandai.github.io/es-gastos-compraventa/">Gastos compraventa</a>
         <a href="https://mmandai.github.io/about/">About MMDAI</a>
       </div>
     </div>
@@ -335,8 +392,12 @@ function buildLetterGrid(){
   document.querySelectorAll('.terms-section').forEach(s=>{const letter=s.dataset.letter;if(!letter)return;const a=document.createElement('a');a.href='#section-'+letter;a.className='letter-btn';a.textContent=letter;a.addEventListener('click',()=>{document.querySelectorAll('.letter-btn').forEach(l=>l.classList.remove('active'));a.classList.add('active');});grid.appendChild(a);});
 }
 function updateActiveOnScroll(){let current='';document.querySelectorAll('.terms-section').forEach(s=>{if(s.getBoundingClientRect().top<180)current=s.dataset.letter;});document.querySelectorAll('.letter-btn').forEach(l=>l.classList.toggle('active',l.textContent===current));}
+function setCookieConsent(v){localStorage.setItem('cookieConsent',v);document.getElementById('cookieBanner').style.display='none';if(v==='accepted')loadAnalytics();}
+if(!localStorage.getItem('cookieConsent')){document.getElementById('cookieBanner').style.display='flex';}
+
 buildLetterGrid();filterTerms();
 window.addEventListener('scroll',updateActiveOnScroll,{passive:true});
 </script>
+
 </body>
 </html>
